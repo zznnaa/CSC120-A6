@@ -57,16 +57,10 @@ public class House extends Building{
   public static void main(String[] args) {
     //new House();
     House house = new House("home", "624", 2, true);
+    house.moveIn("Zoe");
     System.out.println(house.nResidents());
+    house.moveOut("Zoe");
     System.out.println(house);
   }
 
 }
-
-//don't have to keep anything from parent class, can override functions like toString
-//in class
-// public class House extends Building{
-//   public House(String name, String address, int nFloors){
-//     super(name, address, nFloors);
-//   }
-// }
