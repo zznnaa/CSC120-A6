@@ -50,7 +50,6 @@ public class House extends Building{
   }
 
   public static void main(String[] args) {
-    //new House();
     House house = new House("home", "624", 2, true);
     try{
       house.moveIn("Zoe");
@@ -64,7 +63,6 @@ public class House extends Building{
       System.out.println(e);
     }
     System.out.println(house);
-    //reconfigure house tostring a bit
   }
 
 }
