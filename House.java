@@ -27,11 +27,7 @@ public class House extends Building{
 
   //java desc
   public boolean isResident(String person){
-    if (this.residents.contains(person)){
-      return true;
-    } else {
-      return false;
-    }
+    return this.residents.contains(person);
   }
 
   //java desc
@@ -68,6 +64,7 @@ public class House extends Building{
       System.out.println(e);
     }
     System.out.println(house);
+    //reconfigure house tostring a bit
   }
 
 }
