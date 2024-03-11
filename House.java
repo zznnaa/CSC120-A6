@@ -39,27 +39,34 @@ public class House extends Building{
     if (isResident(name) == false){
       this.residents.add(name);
     } else {
-      System.out.println("This person is already a resident.");
+      throw new RuntimeException ("This person is already a resident.");
     }
   }
 
   //java desc
   public String moveOut(String name){
-    //doesnt necessarily return name rn, do I need to add a try/catch?
     if (isResident(name) == true){
       this.residents.remove(name);
-      return name;
     } else {
-      System.out.println("This person isn't a resident.");
+      throw new RuntimeException ("This person is not a resident.");
     }
+    return name;
   }
 
   public static void main(String[] args) {
     //new House();
     House house = new House("home", "624", 2, true);
-    house.moveIn("Zoe");
+    try{
+      house.moveIn("Zoe");
+    } catch (RuntimeException e){
+      System.out.println(e);
+    }
     System.out.println(house.nResidents());
-    house.moveOut("Zoe");
+    try{
+      house.moveOut("Zoe");
+    } catch (RuntimeException e){
+      System.out.println(e);
+    }
     System.out.println(house);
   }
 
