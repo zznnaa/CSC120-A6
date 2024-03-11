@@ -93,6 +93,7 @@ public class Library extends Building {
 
     public static void main(String[] args) {
       Library library = new Library("San Mateo Public Library", "downtown", 4);
+      System.out.println(library);
       try{
         library.addTitle("The Little Engine That Could");
       } catch (RuntimeException e){
