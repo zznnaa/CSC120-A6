@@ -6,12 +6,13 @@ public class House extends Building{
   private boolean hasDiningRoom;
 
   public House(String name, String address, int nFloors, boolean hasDiningRoom) {
+    //super begins to construct House from parent class
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom;
   }
 
-  //put in java desc
+ //says whether the house has a dining room
   public boolean hasDiningRoom(){
     if (this.hasDiningRoom == true){
       return true;
@@ -20,17 +21,22 @@ public class House extends Building{
     }
   }
 
-  //java desc
+  //says number of residents
   public int nResidents(){
     return this.residents.size();
   }
 
-  //java desc
+  //says whether resident is in house
   public boolean isResident(String person){
     return this.residents.contains(person);
   }
 
-  //java desc
+  /**
+ * Moves a resident into the house.
+ *
+ * @param name The name of the resident.
+ * @throws RuntimeException Resident already belongs to the house.
+ */
   public void moveIn(String name){
     if (isResident(name) == false){
       this.residents.add(name);
@@ -39,7 +45,12 @@ public class House extends Building{
     }
   }
 
-  //java desc
+  /**
+ * Moves a resident out of the house.
+ *
+ * @param name The name of the resident.
+ * @throws RuntimeException Resident is not part of the house.
+ */
   public String moveOut(String name){
     if (isResident(name) == true){
       this.residents.remove(name);

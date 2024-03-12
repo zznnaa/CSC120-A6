@@ -10,12 +10,18 @@ public class Library extends Building {
       this.collection = new Hashtable<String, Boolean>();
     }
     
-    //java desc
+    //whether title contained in collection
     public boolean containsTitle(String title){
       return collection.containsKey(title);
     }
 
-    //java desc
+    /**
+   * Checks if title is avaliable to check out in the library.
+   *
+   * @param title Title of the book.
+   * @return T/F Whether title is avaliable to check out.
+   * @throws RuntimeException Book is not contained in the collection.
+   */
     public boolean isAvaliable(String title){
       //checks if title contained in library
       if (collection.containsKey(title) == true){
@@ -27,7 +33,12 @@ public class Library extends Building {
       }
     }
 
-    //java desc
+      /**
+     * Adds book to the library.
+     *
+     * @param title Title of the book.
+     * @throws RuntimeException This book is already contained in the collection.
+     */
     public void addTitle(String title){
       if (containsTitle(title) == false){
         collection.put(title, true);
@@ -36,7 +47,13 @@ public class Library extends Building {
       }
     }
 
-    //java desc
+      /**
+     * Removes book from the library.
+     *
+     * @param title Title of the book.
+     * @return Title of the book.
+     * @throws RuntimeException Book is not contained in the collection.
+     */
     public String removeTitle(String title){
       if (containsTitle(title) == true){
         collection.remove(title);
@@ -46,7 +63,11 @@ public class Library extends Building {
       return title;
     }
 
-    //java desc
+      /**
+     * Checks out book from the library.
+     *
+     * @param title Title of the book.
+     */
     public void checkOut(String title){
       try{
         //check if title avaliable in library
@@ -62,7 +83,11 @@ public class Library extends Building {
       }
     }
 
-    //java desc
+      /**
+     * Returns out book from the library.
+     *
+     * @param title Title of the book.
+     */
     public void returnBook(String title){
       try {
         //check if title avaliable in library
@@ -78,7 +103,7 @@ public class Library extends Building {
       }
     }
 
-    //java desc
+    //prints contents of the collection
     public void printCollection(){
       System.out.println(this.name + " Collection:");
       //checks if any books in collection
