@@ -13,39 +13,39 @@ public class Cafe extends Building {
         this.nCups = 5;
     }
 
-     /**
+    /**
      * Sells a coffee from the cafe.
      *
      * @param size Size of ordered coffee.
      * @param nSugarPackets Number of sugar packets ordered in coffee.
      * @param nCreams Splashes of cream ordered in coffee.
      */
-    public void sellCoffee(int size, int nSugarPackets, int nCreams){
+    public void sellCoffee(int size, int nSugarPackets, int nCreams) {
         //how much to restock by
         int restockCoffee = 0;
         int restockSugarPackets = 0;
         int restockCream = 0;
         int restockCups = 0;
         //sees if order will go below avaliable inventory
-        if ((this.nCoffeeOunces - size) < 0){
+        if ((this.nCoffeeOunces - size) < 0) {
             System.out.println("There is not enough coffee to make that order.");
             //if so, adds to restock
             restockCoffee = 20;
         }
-        if ((this.nSugarPackets - nSugarPackets) < 0){
+        if ((this.nSugarPackets - nSugarPackets) < 0) {
             System.out.println("There are not enough sugar packets to make that order.");
             restockSugarPackets = 3;
         }
-        if ((this.nCreams - nCreams) < 0){
+        if ((this.nCreams - nCreams) < 0) {
             System.out.println("There are not enough splashes of cream to make that order.");
             restockCream = 3;
         }
-        if ((this.nCups - nCups) < 0){
+        if ((this.nCups - nCups) < 0) {
             System.out.println("There are not enough cups to make this order.");
             restockCups = 5;
         }
         //if any restock variable is above 0, restocks cafe
-        if ((restockCoffee != 0) || (restockSugarPackets != 0) || (restockCream != 0) || (restockCups != 0)){
+        if ((restockCoffee != 0) || (restockSugarPackets != 0) || (restockCream != 0) || (restockCups != 0)) {
             restock(restockCoffee, restockSugarPackets, restockCream, restockCups);
         }
         //makes order
@@ -54,12 +54,12 @@ public class Cafe extends Building {
         this.nSugarPackets -= nSugarPackets;
         this.nCreams -= nCreams;
         this.nCups -= 1;
-        System.out.println("Finished!");
+        System.out.println("Success!");
         System.out.println("Order up! " + size + "oz coffee with " + nSugarPackets + " sugar(s) and " + nCreams + " cream(s).");
-        
+
     }
-    
-      /**
+
+    /**
      * Restocks inventory in cafe.
      *
      * @param nCoffeeOunces Restocked ounces of coffee.
@@ -67,7 +67,7 @@ public class Cafe extends Building {
      * @param nCreams Restocked splashes of cream.
      * @param nCups Restocked number of cups.
      */
-    private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups){
+    private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         System.out.print("Restocking...");
         this.nCoffeeOunces += nCoffeeOunces;
         this.nSugarPackets += nSugarPackets;
@@ -79,9 +79,9 @@ public class Cafe extends Building {
     public static void main(String[] args) {
         Cafe cafe = new Cafe("Tatte", "Boston", 1);
         System.out.println(cafe);
-        for (int i = 1; i < 6; i++){
+        for (int i = 1; i < 6; i++) {
             cafe.sellCoffee(12, 3, 2);
         }
     }
-    
+
 }
